@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gayardo Remote Assist</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#081426;color:white}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;background:#101f36}
+.logo{font-size:21px;font-weight:bold;color:#62b5ff}
+.logo span{color:white}
+main{max-width:850px;margin:55px auto;padding:20px}
+.hero{text-align:center;margin-bottom:35px}
+.hero h1{font-size:36px}
+.hero p{color:#b7c8dc;line-height:1.7}
+.panel{background:#132640;border:1px solid #294766;border-radius:18px;padding:25px;margin:20px 0}
+h2{font-size:21px}
+button{background:#1689ed;color:white;border:0;padding:14px 20px;border-radius:9px;font-size:16px;font-weight:bold;width:100%;margin-top:12px}
+button:hover{background:#086bc0}
+input{width:100%;padding:15px;border-radius:9px;border:1px solid #45617e;background:#09182b;color:white;font-size:17px;margin-top:12px}
+.note{font-size:13px;color:#a9bed5;line-height:1.6}
+#message{color:#70d6a1;margin-top:15px}
+footer{text-align:center;padding:25px;color:#91a6bf;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">GAYARDO <span>REMOTE ASSIST</span></div>
+<div>V1.0</div>
+</header>
+
+<main>
+<section class="hero">
+<h1>Remote Assistance Made Simple</h1>
+<p>Connect, share your screen and receive assistance securely from anywhere.</p>
+</section>
+
+<section class="panel">
+<h2>Administrator</h2>
+<p>Create an invitation code for a support session.</p>
+<button onclick="createSession()">Create a session</button>
+<p id="sessionCode"></p>
+</section>
+
+<section class="panel">
+<h2>Join a session</h2>
+<p>Enter the invitation code provided by your assistant.</p>
+<input id="code" placeholder="Enter your session code">
+<button onclick="joinSession()">Join session</button>
+<p id="message"></p>
+</section>
+
+<section class="panel">
+<h2>Secure screen sharing</h2>
+<p class="note">Screen sharing can only begin after the device owner gives permission. You can stop sharing at any time.</p>
+<p class="note">Android and iPhone support will be developed with their respective permissions and platform requirements.</p>
+</section>
+</main>
+
+<footer>
+© 2026 Gayardo Remote Assist. All rights reserved.
+</footer>
+
+<script>
+function createSession(){
+ const code="GRA-"+Math.random().toString(36).substring(2,8).toUpperCase();
+ document.getElementById("sessionCode").textContent="Demo invitation code: "+code;
+}
+function joinSession(){
+ const code=document.getElementById("code").value.trim();
+ document.getElementById("message").textContent=
+ code ? "Code received. A secure connection service is not configured yet." : "Please enter an invitation code.";
+}
+</script>
+</body>
+</html>
